@@ -1,10 +1,12 @@
 import './App.css';
-import Imgmemes from './componentes/Imgmemes';
+import Meme from './componentes/Meme';
+import Header from './componentes/Header';
 
 function App() {
   return (
     <div className="App">
-      <Imgmemes />
+      <Header />
+      <Meme />
     </div>
   );
 }
