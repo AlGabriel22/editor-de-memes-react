@@ -1,0 +1,21 @@
+header {
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: baseline;
+  background: #bb5252;
+}
+
+p {
+  margin-left: 80px;
+  font-size: 2.5rem;
+  color: azure;
+}
+
+.img-header {
+  width: 90px;
+  height: auto;
+  margin-left: 300px;
+}
