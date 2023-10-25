@@ -7,22 +7,84 @@ import '../hojas-de-estilo/Meme.css';
 const Meme = () => {
 
   const [memes, setMemes] = useState([]);
+  const [memeIndex, setMemeIndex] = useState(0);
+  const [captions, setCaptions] = useState([]);
+
+
+  const agregarTexto = (e, index) => {
+    const texto = e.target.value || '';
+    setCaptions(
+      captions.map((c, i) => {
+        if(index === i) {
+          return texto;
+        } else {
+          return c;
+        }
+      })
+    );
+  };
+
+  // Funcion para traer una imagen ramdom de la API
+  const ramdomMemes = (array) => {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * i);
+      const temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  };
+
+  const generarMeme = () => {
+    const actualMeme = memes[memeIndex];
+    const formData = new FormData();
+
+    formData.append('username', 'process.env.REACT_APP_IMGFLIP_USERNAME');
+    formData.append('password', 'process.env.REACT_APP_IMGFLIP_PASSWORD');
+    formData.append('template_id', actualMeme.id);
+    captions.forEach((c, index) => formData.append(`boxes[${index}][texto], c`));
+
+
+    fetch('https://api.imgflip.com/caption_image', {
+      method: 'POST',
+      body: formData
+    }).then(response => {
+      response.json().then(response => {
+        console.log(response);
+      });
+    });
+  };
 
   useEffect(() => {
     fetch('https://api.imgflip.com/get_memes')
-      .then(resp => {
-        resp.json().then(resp =>{
-          const memes = resp.data.memes;
-          setMemes(memes);
+      .then(response => {
+        response.json().then(response =>{
+          const _memes = response.data.memes;
+          ramdomMemes(_memes);
+          setMemes(_memes);
         });    
       });
   }, []);
 
+  useEffect(() => {
+    if(memes.length) {
+      setCaptions(Array(memes[memeIndex].box_count).fill(''));
+    }
+  }, [memeIndex, memes]);
+
+
   return (
     memes.length ? 
     <div className={Meme.container}>
-      <button className={Meme.skip}>Skipe</button>
-      <img src={memes[0].url} /> 
+      <button onClick={() => setMemeIndex(memeIndex + 1)} className={Meme.skip}>Skipe</button>
+      {
+        captions.map((c, index) => (
+          <input onChange={(e) => agregarTexto(e, index)} key={index} />
+        ))
+      }
+      
+      <img src={memes[memeIndex].url} /> 
+      
+      <button onClick={generarMeme} className={Meme.generate}>Generate</button>
     </div> : <></>
     
   );
