@@ -33,8 +33,21 @@ input::placeholder {
 
 .skip {
     background-color: #f0ad4e;
+    /* transition: transform 0.3s; */
 }
 
+.skip:hover {
+    transform: translate(0.5px, 2px);
+    background-color: #a20800;
+}
+ 
 .generate{
     background-color: #0275d8;
+}
+
+.generate:hover {
+    /* transform: scale(1, 0.9); */
+    /* animation: bubble 0.4s ease-out; */
+    transform: translate(0.5px, 2px);
+    background-color: #00a532;
 }
