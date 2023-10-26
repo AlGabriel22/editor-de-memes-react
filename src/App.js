@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.css';
 import Meme from './componentes/Meme';
 import Header from './componentes/Header';
