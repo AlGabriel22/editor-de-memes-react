@@ -7,9 +7,9 @@ function Header() {
       <img 
         className='img-header'
         src='http://www.pngall.com/wp-content/uploads/2016/05/Trollface.png'
-        alt='Problem?'
+        alt='troll face'
       />
-      <p>Generador de Meme</p>
+      <p>Generador de Memes</p>
     </header>
   );
 }
