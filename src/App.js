@@ -1,12 +1,8 @@
 import './App.css';
-import Imgmemes from './componentes/Imgmemes';
+import Main from './componentes/Main';
 
 function App() {
-  return (
-    <div className="App">
-      <Imgmemes />
-    </div>
-  );
+  return <Main />;
 }
 
 export default App;
