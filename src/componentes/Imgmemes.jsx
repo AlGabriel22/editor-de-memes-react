@@ -1,8 +1,8 @@
 import html2canvas from "html2canvas";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../hojas-de-estilo/Imgmeme.css";
 
-function Imgmemes() {
+async function Imgmemes() {
   // variable de estado para imagenes
   const [imgmeme, setImgmeme] = useState();
 
@@ -29,6 +29,32 @@ function Imgmemes() {
     });
   }
 
+  // Api
+  const axios = require('axios');
+
+  const options = {
+    method: 'GET',
+    url: 'https://ronreiter-meme-generator.p.rapidapi.com/meme',
+    params: {
+      top: 'Top Text',
+      bottom: 'Bottom Text',
+      meme: 'Condescending-Wonka',
+      font_size: '50',
+      font: 'Impact'
+    },
+    headers: {
+      'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+      'X-RapidAPI-Host': 'ronreiter-meme-generator.p.rapidapi.com'
+    }
+  };
+
+  try {
+    const response = await axios.request(options);
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+
   return (
     <div className="contenedor">
       <h1 className="titulo">Editor de memes</h1>
@@ -42,18 +68,23 @@ function Imgmemes() {
         onChange={textomeme} />
 
       <h3>Eligí tu imagen</h3>
-      <select
-        onChange={seleccionarImg}>
-        <option value={1}>Futurama</option>
-        <option value={2}>Bob esponja</option>
-        <option value={3}>Calamardo</option>
-      </select>
-      <figure className="" id="exportar">
-        <p>{textmeme}</p>
-        <img src={`../imgmemes/${imgmeme}.jpg`}
-          alt="meme"
-          className="imagen" />
-      </figure>
+      {/* {memes.map(meme => ( */}
+      <div>
+        <select
+          onChange={seleccionarImg}>
+          <option value={1}>bob esponja</option>
+          {/* <option value={2}>Bob esponja</option>
+            <option value={3}>Calamardo</option> */}
+        </select>
+        <figure className="" id="exportar">
+          <p>{textmeme}</p>
+          <img src={`../imgmemes/${imgmeme}.jpg`}
+            alt="meme"
+            className="imagen" />
+        </figure>
+      </div>
+      {/* ))} */}
+
 
       <button
         type="button"
