@@ -1,8 +1,8 @@
 // import html2canvas from "html2canvas";
 // import React, { useState, useEffect } from "react";
 
-import React, { useEffect, useState } from 'react'
-import '../hojas-de-estilo/Meme.css';
+import React, { useEffect, useState } from 'react';
+import styles from '../hojas-de-estilo/Meme.css';
 
 const Meme = () => {
 
@@ -38,8 +38,8 @@ const Meme = () => {
     const actualMeme = memes[memeIndex];
     const formData = new FormData();
 
-    formData.append('username', 'process.env.REACT_APP_IMGFLIP_USERNAME');
-    formData.append('password', 'process.env.REACT_APP_IMGFLIP_PASSWORD');
+    formData.append('username', 'portexe');
+    formData.append('password', 'abc123');
     formData.append('template_id', actualMeme.id);
     captions.forEach((c, index) => formData.append(`boxes[${index}][texto], c`));
 
@@ -74,17 +74,15 @@ const Meme = () => {
 
   return (
     memes.length ? 
-    <div className={Meme.container}>
-      <button onClick={() => setMemeIndex(memeIndex + 1)} className={Meme.skip}>Skipe</button>
+    <div className={'container'}>
+      <button onClick={() => setMemeIndex(memeIndex + 1)} className={'skip'}>Skipe</button>
       {
         captions.map((c, index) => (
           <input onChange={(e) => agregarTexto(e, index)} key={index} />
         ))
       }
-      
+      <button onClick={generarMeme} className={'generate'}>Generar meme</button>
       <img src={memes[memeIndex].url} /> 
-      
-      <button onClick={generarMeme} className={Meme.generate}>Generate</button>
     </div> : <></>
     
   );
