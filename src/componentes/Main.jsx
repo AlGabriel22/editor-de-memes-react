@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "./Header";
-import Footer from "./Footer";
 import Meme  from "./Meme";
 
 
@@ -9,7 +8,6 @@ const Main = () => {
     <>
       <Header />
       <Meme />
-      <Footer />
     </>
   );
 };
