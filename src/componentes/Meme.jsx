@@ -57,10 +57,10 @@ const Meme = () => {
 
   // Descargar meme
   const descargar = (e) => {
-    html2canvas(document.querySelector("#exportar")).then(canvas => {
+    html2canvas(document.querySelector('#exportar'), {useCORS: true}).then(canvas => {
       // document.body.appendChild(canvas)
-      let img = canvas.toDataURL(`url(${selectedMeme?.url})`);
-      let link = document.createElement("a");
+      let img = canvas.toDataURL('image/png');
+      let link = document.createElement('a');
       link.download = `${selectedMeme.name}.png`;
       link.href = img;
       link.click();
@@ -96,35 +96,35 @@ const Meme = () => {
             style={
               selectedColor === 'orange' ? { height: '1.5em', width: '1.5em'} : {}
             }
-            className='color waves-effect orange'>  
+            className='color waves-effect orange hoverable'>  
           </button>
 
           <button
             onClick={handleColor}
             style={selectedColor === 'white' ? {height: '1.5em', width: '1.5em'} : {}
             }
-            className='color waves-effect white'>  
+            className='color waves-effect white hoverable'>  
           </button>
 
           <button
             onClick={handleColor}
             style={selectedColor === 'black' ? {height: '1.5em', width: '1.5em'} : {}
             }
-            className='color waves-effect black'>  
+            className='color waves-effect black hoverable'>  
           </button>
 
           <button
             onClick={handleColor}
             style={selectedColor === 'pink' ? {height: '1.5em', width: '1.5em'} : {}
             }
-            className='color waves-effect pink'>  
+            className='color waves-effect pink hoverable'>  
           </button>
 
           <button
             onClick={handleColor}
             style={selectedColor === 'yellow' ? {height: '1.5em', width: '1.5em'} : {}
             }
-            className='color waves-effect yellow'>  
+            className='color waves-effect yellow hoverable'>  
           </button>
         </div>
 
@@ -132,6 +132,7 @@ const Meme = () => {
         <form>
           <div className="row">
             <div className="input-field">
+              <i class="material-icons prefix">mode_edit</i>
               <input 
                 className='validate'
                 type='text'
@@ -143,6 +144,7 @@ const Meme = () => {
               <label for='top_text'>Texto superior</label>
             </div>
             <div className="input-field">
+              <i class="material-icons prefix">mode_edit</i>
               <input 
                 className='validate'
                 type="text"
@@ -152,6 +154,7 @@ const Meme = () => {
                 onChange={handleChange} 
               />
               <label for='bottom_text'>Texto inferior</label>
+              
             </div>
           </div>
         </form>
@@ -160,14 +163,16 @@ const Meme = () => {
         <div className='button-container'>
           <button
             onClick={handleMemeChange}
-            className='waves-effect waves-light btn blue'>
-              Otro Meme
+            className='waves-effect waves-light btn blue hoverable truncate flow-text'>
+            Otro meme
+              <i className="material-icons">autorenew</i>
+              
           </button>
           <button
             onClick={descargar}
-            className='waves-effect waves-light btn'>
-              Descargar Meme
-            </button>
+            className='waves-effect waves-light btn hoverable flow-text'>Descargar
+            <i className="material-icons">file_download</i>
+          </button>
         </div>
     </div>
   );
