@@ -59,7 +59,7 @@ const Meme = () => {
   const descargar = (e) => {
     html2canvas(document.querySelector("#exportar")).then(canvas => {
       // document.body.appendChild(canvas)
-      let img = canvas.toDataURL(`${selectedMeme?.url}`);
+      let img = canvas.toDataURL(`url(${selectedMeme?.url})`);
       let link = document.createElement("a");
       link.download = `${selectedMeme.name}.png`;
       link.href = img;

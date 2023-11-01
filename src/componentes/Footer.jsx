@@ -8,7 +8,7 @@ const Footer = () => {
 				href='https://github.com/Rajatm544'
 				target='_blank'
 				rel='noreferrer noopener'>
-				Rajat
+				MAG
 			</a>
 		</footer>
 	);
