@@ -5,10 +5,10 @@ const Footer = () => {
 		<footer>
 			© 2023{' '}
 			<a
-				href='https://github.com/Rajatm544'
+				href='https://github.com/AlGabriel22'
 				target='_blank'
 				rel='noreferrer noopener'>
-				MAG
+				Alvaro.Mamani
 			</a>
 		</footer>
 	);
