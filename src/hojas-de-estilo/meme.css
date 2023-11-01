@@ -1,7 +1,7 @@
 div.container {
     display: flex;
     flex-flow: column nowrap;
-    width: 80vw;
+    width: 100vw;
     align-items: center;
     justify-content: center;
 }
@@ -47,11 +47,25 @@ div.color-picker button.color {
 
 .button-container {
     margin-top: -1em;
+    margin-bottom: 2em;
     display: flex;
-    width: 40%;
+    width: auto;
     justify-content: space-around;
 }
 
 .button-container button {
     width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5em;
+    margin: auto;
+}
+
+@media screen and (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        width: 80%; 
+        gap: 0.5em;
+    }
 }

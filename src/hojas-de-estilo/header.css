@@ -1,12 +1,25 @@
 nav {
-    height: 3em;
+    height: 4em;
     display: flex;
     align-items: center;
+    flex-direction: row;
+    /* justify-content: space-between; */
     margin-bottom: 1.5em;
 }
 
-p.brand-logo {
-    padding-left: 0.5em;
-    font-size: 1em;
+p.logo {
+    margin-left: 2em;
+    padding-left: 2em;
+    font-size: 0.5em;
     font-weight: bold;
+    font-family: 'Courier New', Courier, monospaces;
+}
+
+.img-header {
+    margin: 0.5em;
+    width: 40px;
+    height: auto;
+    position: absolute;
+    box-shadow: none;
+    /* margin-left: 300px; */
 }
