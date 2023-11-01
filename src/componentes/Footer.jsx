@@ -3,7 +3,7 @@ import '../hojas-de-estilo/footer.css';
 const Footer = () => {
 	return (
 		<footer>
-			Built By{' '}
+			© 2023{' '}
 			<a
 				href='https://github.com/Rajatm544'
 				target='_blank'
