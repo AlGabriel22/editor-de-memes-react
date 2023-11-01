@@ -5,7 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url(img/meme-background.jpg);
+  
+  /* background-repeat: no-repeat; */
+  background-position: center center;
+  background-size: cover;
+  background-image: url(img/meme-background2.jpg);
 }
 
 code {
