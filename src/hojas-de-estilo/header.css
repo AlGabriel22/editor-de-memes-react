@@ -5,6 +5,7 @@ nav {
     flex-direction: row;
     /* justify-content: space-between; */
     margin-bottom: 1.5em;
+    background-image: radial-gradient(circle, #39a084, #00969a, #0089af, #0077bb, #2961b5);
 }
 
 p.logo {
@@ -13,13 +14,21 @@ p.logo {
     font-size: 0.5em;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospaces;
+    line-height: normal;
 }
 
 .img-header {
-    margin: 0.5em;
+    margin-left: 0.5em;
     width: 40px;
     height: auto;
     position: absolute;
+    top: 10%;
+    /* bottom: 30%; */
     box-shadow: none;
-    /* margin-left: 300px; */
+}
+
+@media screen and (max-width: 434px) {
+    .img-header {
+        margin: auto;
+    }
 }

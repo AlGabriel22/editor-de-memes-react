@@ -4,6 +4,7 @@ div.container {
     width: 100vw;
     align-items: center;
     justify-content: center;
+    /* padding-bottom: 81px; */
 }
 
 h4.meme-top-text,
@@ -27,6 +28,7 @@ div.meme-container {
 
 form {
     width: 50%;
+    margin: 1em;
 }
 
 div.color-picker {
